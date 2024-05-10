@@ -4,6 +4,8 @@ const {
   Partials,
   ActivityType,
 } = require("discord.js");
+require("dotenv").config();
+
 const client = new Client({
   intents: [
     IntentsBitField.Flags.Guilds,
@@ -14,6 +16,8 @@ const client = new Client({
   ],
   partials: [Partials.Channel, Partials.Message, Partials.Reaction],
 });
+
+const TOKEN = process.env.CLIENT_TOKEN;
 
 let totalReactionCount = 0;
 
@@ -230,6 +234,4 @@ client.on("messageCreate", async (message) => {
   }
 });
 
-client.login(
-  "ODkwNzg5MDUxNjA5Nzc2MTY4.GVrAUd.blUk-pQUypLt0kJ6NPrzZnyH-uneiiobiCRrwc"
-);
+client.login(TOKEN);
